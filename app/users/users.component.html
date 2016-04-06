@@ -1,0 +1,30 @@
+<h1>Users</h1>
+<spinner [visible]="isLoading"></spinner>
+<p>
+	<a *ngIf="!isLoading  && !userServiceError" [routerLink]="['NewUser']" class="btn btn-primary">Add User</a>
+</p>
+<alert [visible]="userServiceError" [alert-message]="errorMessage"></alert>
+<table *ngIf="!isLoading && !userServiceError" class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="#user of users">
+			<td>{{ user.name }}</td>
+			<td>{{ user.email }}</td>
+			<td>
+                <a [routerLink]="['EditUser', { id: user.id }]">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </a>
+			</td>
+			<td>
+                <i (click)="deleteUser(user)" class="glyphicon glyphicon-remove"></i>
+            </td>
+		</tr>
+	</tbody>
+</table> 

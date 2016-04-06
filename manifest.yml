@@ -1,0 +1,6 @@
+applications:
+- name: angular2-app
+  memory: 512M
+  host: angular2-app
+  buildpack: nodejs_buildpack
+  path: .
