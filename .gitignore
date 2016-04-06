@@ -3,3 +3,8 @@ typings/
 app/**/*.js 
 app/**/*.js.map
 *.sublime*
+node_modules/ 
+typings/ 
+app/**/*.js 
+app/**/*.js.map
+*.sublime*
