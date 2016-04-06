@@ -1,6 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig,ROUTER_DIRECTIVES,Router} from 'angular2/router';
 
+declare var jQuery:any;
 
 @Component({
     selector: 'navbar',
@@ -9,12 +10,18 @@ import {RouteConfig,ROUTER_DIRECTIVES,Router} from 'angular2/router';
 })
 export class NavBarComponent {
 
-	constructor(private _router: Router) {
-
+   	constructor(private _router: Router) {
+       
 	}
 
 	isCurrentRoute(route) {
 		var instruction = this._router.generate(route);
-		return this._router.isRouteActive(instruction);
+        return this._router.isRouteActive(instruction);
 	}
+    
+    // collapse Navbar once clicked
+    clicked() {
+        jQuery('.navbar-collapse.in').collapse('hide');
+    }
+
 }
