@@ -1,0 +1,20 @@
+<form [ngFormModel]="form" (ngSubmit)="login()">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" class="form-control" ngControl="username" #username="ngForm">
+
+        <div *ngIf="username.touched && username.errors">
+            <div *ngIf="username.errors.invalidLogin" class="alert alert-danger">Username or password is invalid.
+            </div>
+            <div *ngIf="username.errors.required" class="alert alert-danger">Username is required.
+            </div>
+            <div *ngIf="username.errors.cannotContainSpace" class="alert alert-danger">Username cannot contain space.
+            </div>
+        </div>
+        <label for="password">Password</label>
+        <input id="password" type="password" class="form-control" ngControl="password" #password="ngForm">
+        <div *ngIf="password.touched && !password.valid" class="alert alert-danger">Password is required.
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Login</button>
+</form>

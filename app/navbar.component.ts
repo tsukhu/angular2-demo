@@ -1,5 +1,6 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
+import {AuthService} from './auth/auth.service';
 
 declare var jQuery: any;
 
@@ -9,9 +10,18 @@ declare var jQuery: any;
     directives: [ROUTER_DIRECTIVES]
 })
 export class NavBarComponent {
-
-   	constructor(private _router: Router) {
-
+    resolve;
+    logStatus;
+   	constructor(private _router: Router,
+                public auth: AuthService) {
+       auth.check()
+            .subscribe((result) => {
+                if (result)
+                    this.logStatus="Log Out";
+                else
+                    this.logStatus="Log In";
+            });
+             
     }
 
     isCurrentRoute(route) {
