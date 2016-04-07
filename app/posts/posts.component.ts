@@ -1,9 +1,11 @@
 import {Component, OnInit} from 'angular2/core';
+import {CanActivate, ComponentInstruction} from 'angular2/router';
 
 import {PostService} from './post.service';
 import {UserService} from '../users/user.service';
 import {SpinnerComponent} from '../shared/spinner.component';
 import {PaginationComponent} from '../shared/pagination.component';
+import {isLoggedIn} from '../auth/isLoggedIn';
 
 @Component({ 
 	templateUrl: 'app/posts/posts.component.html',
@@ -22,6 +24,9 @@ import {PaginationComponent} from '../shared/pagination.component';
 	directives: [SpinnerComponent,PaginationComponent]
 })
 
+@CanActivate((next: ComponentInstruction, previous: ComponentInstruction) => {
+  return isLoggedIn(next,previous);
+})
 export class PostsComponent implements OnInit{
 
 	posts= [];

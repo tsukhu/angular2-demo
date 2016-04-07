@@ -8,6 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" [routerLink]="['Home']">Angular 2 Demo</a>
         </div>
@@ -17,6 +18,7 @@
             <ul class="nav navbar-nav">
                 <li [class.active]="isCurrentRoute(['Users'])" (click)="clicked()" id="users"><a [routerLink]="['Users']" >Users</a></li>
                 <li [class.active]="isCurrentRoute(['Posts'])" (click)="clicked()" id="posts"><a [routerLink]="['Posts']" >Posts</a></li>
+                <li [class.active]="isCurrentRoute(['Login'])" (click)="clicked()" id="login"><a [routerLink]="['Login']" >Login</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
