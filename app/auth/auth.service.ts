@@ -1,4 +1,5 @@
 import {Observable} from 'rxjs/Rx';
+import {Observer} from 'rxjs/Observer';
 import {Injectable} from 'angular2/core';
 
 @Injectable()
@@ -19,5 +20,5 @@ export class AuthService {
     public check() {
         return Observable.of(this.loggedIn);
     }
-
+    
 }

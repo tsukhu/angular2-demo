@@ -18,7 +18,7 @@
             <ul class="nav navbar-nav">
                 <li [class.active]="isCurrentRoute(['Users'])" (click)="clicked()" id="users"><a [routerLink]="['Users']" >Users</a></li>
                 <li [class.active]="isCurrentRoute(['Posts'])" (click)="clicked()" id="posts"><a [routerLink]="['Posts']" >Posts</a></li>
-                <li [class.active]="isCurrentRoute(['Login'])" (click)="clicked()" id="login"><a [routerLink]="['Login']" >{{logStatus}}</a></li>
+                <li [class.active]="isCurrentRoute(['Login'])" (click)="clicked()" id="login"><a [routerLink]="['Login']" >{{!auth.loggedIn ? "Log In" : "Log Out"}}</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
