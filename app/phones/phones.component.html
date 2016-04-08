@@ -1,0 +1,20 @@
+<h2> Phones </h2>
+
+<div class="media" *ngFor="#phone of phones">
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            <div class="media-left">
+                <a href="#">
+                    <img class="media-object thumb" src="assets/{{ phone.imageUrl }}" alt="...">
+                </a>
+            </div>
+            <div class="media-body">
+                <h4 class="media-heading"> 
+            {{ phone.name }} <span class="badge">{{phone.carrier}}</span>
+        </h4> {{ phone.snippet }}
+            </div>
+
+        </div>
+    </div>
+</div>

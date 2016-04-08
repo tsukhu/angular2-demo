@@ -1,0 +1,40 @@
+import {Component, OnInit} from 'angular2/core';
+import {Router,RouterLink} from 'angular2/router';
+
+import {PhoneService} from './phone.service';
+import {SpinnerComponent} from '../shared/spinner.component';
+import {AlertComponent} from '../shared/alert.component';
+
+@Component({
+    selector: 'phones',
+	templateUrl: 'app/phones/phones.component.html',
+	providers: [PhoneService],
+	directives: [RouterLink,SpinnerComponent,AlertComponent]
+})
+
+export class PhonesComponent implements OnInit{
+
+	phones: any[];
+	isLoading=true;
+	phoneServiceError=false;
+	errorMessage;
+
+	constructor(private _service: PhoneService) {
+
+	}
+
+	ngOnInit() {
+		this._service.getPhones()
+			.subscribe(
+				phones => this.phones = phones,
+				error => {
+					this.phoneServiceError = true;
+					this.errorMessage = "Unable able to connect";
+					this.isLoading = false;
+				},
+				() => {
+					this.isLoading = false;
+				});
+	}
+	
+}
