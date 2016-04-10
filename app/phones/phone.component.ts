@@ -2,11 +2,13 @@ import {Component, OnInit} from 'angular2/core';
 import {Router, RouteParams} from 'angular2/router';
 import {PhoneService} from "./phone.service";
 import {Phone} from './phone';
+import {CarouselComponent} from '../carousel/carousel.component';
 
 
 @Component({
     templateUrl: 'app/phones/phone.component.html',
-    providers: [PhoneService]
+    providers: [PhoneService],
+    directives: [CarouselComponent]
 
 })
 export class PhoneComponent implements OnInit {
@@ -22,6 +24,7 @@ export class PhoneComponent implements OnInit {
     }
 
     ngOnInit() {
+       console.log("here we aRRR");
         var id = this._routeParams.get("id");
 
         this._phoneService.getPhone(id)
