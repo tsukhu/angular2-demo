@@ -28,7 +28,9 @@ export class PhoneComponent implements OnInit {
             .subscribe(
             phone => {
                   this.phone = phone;
+                  console.log(phone.images);
                   this.img = phone.images[0];
+                  console.log(this.img);
             },
             response => {
                 if (response.status == 404) {
