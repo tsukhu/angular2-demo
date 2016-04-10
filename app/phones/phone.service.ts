@@ -17,9 +17,17 @@ export class PhoneService {
 			url += "/" + filter.phoneId;
         else   
             url += "/phones.json";
-
+        //console.log(url);
 		return this._http.get(url)
 				.map(res => res.json());
 	}
 
+    getPhone(id) {
+        var url = this._url;
+        
+        url += "/" + id + ".json";
+        //console.log(url);
+        return this._http.get(url)
+                .map(res => res.json());
+    }
 }

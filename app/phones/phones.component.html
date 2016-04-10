@@ -5,7 +5,7 @@
         <div class="panel-body">
 
             <div class="media-left">
-                <a href="#">
+                <a [routerLink]="['Phone', { id: phone.id }]">
                     <img class="media-object thumb" src="assets/{{ phone.imageUrl }}" alt="...">
                 </a>
             </div>
