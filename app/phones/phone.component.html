@@ -9,6 +9,45 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-body">
-        <h4 class="media-heading"> {{ phone.name }} </h4> {{ phone.description }}
+        {{ phone.description }}
     </div>
 </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Additional Features</h3>
+    </div>
+    <div class="panel-body">
+        {{ phone.additionalFeatures }}
+    </div>
+</div>
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>Feature</th>
+			<th>Details</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngIf="phone.availability != undefined">
+			<td>Networks and Availability</td>
+			<td >
+                <span *ngFor="#avail of phone.availability">
+                    {{avail.length ==0 ? "N/A": avail}}
+                </span>
+            </td>
+		</tr>
+        <tr>
+            <td> Infrared </td>
+            <td> {{phone.connectivity.infrared | checkmark}} </td>    
+        </tr>
+        <tr>
+            <td> GPS </td>
+            <td> {{phone.connectivity.gps | checkmark}} </td>    
+        </tr>
+        <tr>
+            <td> Accelerometer </td>
+            <td> {{phone.hardware.accelerometer | checkmark}} </td>    
+        </tr>
+	</tbody>
+</table> 

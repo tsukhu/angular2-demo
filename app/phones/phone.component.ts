@@ -3,12 +3,14 @@ import {Router, RouteParams} from 'angular2/router';
 import {PhoneService} from "./phone.service";
 import {Phone} from './phone';
 import {CarouselComponent} from '../carousel/carousel.component';
+import {CheckmarkPipe} from '../shared/checkmark.pipe';
 
 
 @Component({
     templateUrl: 'app/phones/phone.component.html',
     providers: [PhoneService],
-    directives: [CarouselComponent]
+    directives: [CarouselComponent],
+    pipes: [CheckmarkPipe]
 
 })
 export class PhoneComponent implements OnInit {
