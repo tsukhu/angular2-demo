@@ -28,6 +28,19 @@
     <script src="node_modules/underscore/underscore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <!-- Google Polymer script -->
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    
+    <script>
+        window.Polymer = window.Polymer || {};
+        window.Polymer.dom = 'shadow';
+    </script>
+    
+    <link rel="import" href="bower_components/google-map/google-map.html">
+    <link rel="import" href="bower_components/google-map/google-map-marker.html">
+    <link rel="import" href="bower_components/paper-button/paper-button.html">
+        
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
