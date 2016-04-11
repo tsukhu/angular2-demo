@@ -7,9 +7,12 @@ import {Component, Input} from 'angular2/core';
 		<div>
             <google-map latitude={{lat}} longitude={{long}} disableDefaultUI>
                 <google-map-marker 
-                    latitude={{lat}}
-                    longitude={{long}}
-                    title={{title}}
+                    latitude={{lat}} 
+                    longitude={{long}} 
+                    title={{title}} 
+                    click-event="true" 
+                    (google-map-marker-click)="clickedMarker()"
+                    
                 >
                 </google-map-marker>
             </google-map>
@@ -43,6 +46,10 @@ export class GoogleMapComponent {
             this.long="5.0978335";
             this.title="AMIS";
         }
+    }
+    
+    clickedMarker(){
+        this.switch();
     }
 	
 }
