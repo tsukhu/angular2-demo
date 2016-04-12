@@ -1,19 +1,15 @@
-import {Component, Input} from 'angular2/core';
-
+import {Component, Input, OnInit} from 'angular2/core';
+import {MapMarker} from './map-marker';
 
 @Component({
 	selector: 'my-google-comp',
 	template: `
 		<div>
-            <google-map latitude={{lat}} longitude={{long}} disableDefaultUI>
-                <google-map-marker 
-                    latitude={{lat}} 
-                    longitude={{long}} 
-                    title={{title}} 
-                    click-event="true" 
+            <google-map latitude={{marker.lat}} longitude={{marker.long}} disableDefaultUI>
+                <google-map-marker latitude={{marker.lat}} longitude={{marker.long}} title={{marker.title}} 
+                    click-events="true" draggable="false"
                     (google-map-marker-click)="clickedMarker()"
-                    
-                >
+                    >
                 </google-map-marker>
             </google-map>
             <paper-button
@@ -23,29 +19,43 @@ import {Component, Input} from 'angular2/core';
                 > Switch Places 
             </paper-button>
         </div>
-	`
+	`,
+    styles: [`
+        google-map {
+            display: block;
+            height: 500px;
+            width:500px;
+        }
+
+        paper-button.fancy {
+            background: #ccc;
+        }
+    `]
 })
-export class GoogleMapComponent {
-    lat: string;
-    long: string;
-    title: string;
+export class GoogleMapComponent implements OnInit{
+    marker: MapMarker = new MapMarker();
     
     constructor() {
-        this.lat="52.0355031";
-        this.long="5.0978335";
-        this.title="AMIS";
+        
+     
     }
     
     switch() {
-        if(this.title=="AMIS"){
-            this.lat="37.779";
-            this.long="-122.3892";
-            this.title="San Franciso!";
+        if(this.marker.title=="AMIS"){
+            this.marker.lat="37.779";
+            this.marker.long="-122.3892";
+            this.marker.title="San Franciso!";
         } else {
-            this.lat="52.0355031";
-            this.long="5.0978335";
-            this.title="AMIS";
+            this.marker.lat="52.0355031";
+            this.marker.long="5.0978335";
+            this.marker.title="AMIS";
         }
+    }
+    
+    ngOnInit() {
+        this.marker.lat="52.0355031";
+        this.marker.long="5.0978335";
+        this.marker.title="Sample Title";
     }
     
     clickedMarker(){
