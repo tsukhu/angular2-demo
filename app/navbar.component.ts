@@ -3,8 +3,10 @@ import {RouteConfig, ROUTER_DIRECTIVES, Router} from 'angular2/router';
 import {Observable,Scheduler} from 'rxjs/Rx';
 import {Observer} from 'rxjs/Observer';
 import {AuthService} from './auth/auth.service';
+import {MenuItem} from './menu-item';
 
 declare var jQuery: any;
+
 
 @Component({
     selector: 'navbar',
@@ -12,6 +14,12 @@ declare var jQuery: any;
     directives: [ROUTER_DIRECTIVES]
 })
 export class NavBarComponent implements OnInit {
+    menuItems: MenuItem[]= [
+        new MenuItem("users","Users","Users"),
+        new MenuItem("posts","Posts","Posts"),
+        new MenuItem("phones","Phones","Phones")
+        
+    ];
    	constructor(private _router: Router,
                 public auth: AuthService) {
     }

@@ -17,8 +17,8 @@ export const isLoggedIn = (next: ComponentInstruction, prev: ComponentInstructio
                     resolve(true);
                 }
                 else {
-                    router.navigate(['Login']);
                     resolve(false);
+                    router.navigate(['Login']);
                 }
             });
     });
