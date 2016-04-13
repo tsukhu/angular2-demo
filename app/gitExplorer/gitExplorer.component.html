@@ -1,0 +1,16 @@
+<div id="sidebar" class="col-sm-3">
+    <div class="search">
+        <input [ngFormControl]="searchTerm" class="form-control" placeholder='Seach for users' />
+        <button class="btn btn-primary" (click)="getUsers()">Get Users</button>
+    </div>
+    <div class="list-group">
+        <p class="no-users" *ngIf="users.total_count == 0">No users found</p>
+        <a class="users list-group-item" *ngFor="#user of users.items" [routerLink]="['GitUsers', { userLogin: user.login }]">
+            <img class="img-circle" src="{{user.avatar_url}}" />
+            <strong>{{user.login}}</strong>
+        </a>
+    </div>
+</div>
+<div id="main" class="col-sm-9">
+    <router-outlet></router-outlet>
+</div>

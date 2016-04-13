@@ -1,0 +1,6 @@
+#main { margin: 10px 0 }
+#main button { margin-bottom: 5px }
+.search * { margin: 10px 0; }
+.no-users { color: red; }
+.container { width: 100% }
+img { max-width: 50px; }
