@@ -4,12 +4,14 @@ import {Router,RouterLink} from 'angular2/router';
 import {PhoneService} from './phone.service';
 import {SpinnerComponent} from '../shared/spinner.component';
 import {AlertComponent} from '../shared/alert.component';
+import {SearchPipe} from './search.pipe';
 
 @Component({
     selector: 'phones',
 	templateUrl: 'app/phones/phones.component.html',
 	providers: [PhoneService],
-	directives: [RouterLink,SpinnerComponent,AlertComponent]
+	directives: [RouterLink,SpinnerComponent,AlertComponent],
+    pipes: [SearchPipe]
 })
 
 export class PhonesComponent implements OnInit{

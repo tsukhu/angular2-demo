@@ -12,6 +12,7 @@ export class AuthService {
     
     constructor() {
         this.loggedIn = false;
+        localStorage.removeItem('token');
         this.token = localStorage.getItem('token');
     }
 

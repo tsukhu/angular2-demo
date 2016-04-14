@@ -1,6 +1,15 @@
 <h2> Phones </h2>
-
-<div class="media" *ngFor="#phone of phones">
+<div class="row">
+    <div class="input-group col-md-3">
+        <input type="text" class="form-control" [(ngModel)]="searchTerm" caption="Filter" placeholder="Search Filter"/>
+        <span class="input-group-btn">
+            <input type="button" class="btn btn-primary" (click)="searchTerm = ''" value="Clear" />
+        </span>
+    </div>
+</div>
+<br>
+<div class="row">
+<div class="media" *ngFor="#phone of phones | search:'searchTerm':searchTerm">
     <div class="panel panel-default">
         <div class="panel-body">
 
@@ -17,4 +26,5 @@
 
         </div>
     </div>
+</div>
 </div>
