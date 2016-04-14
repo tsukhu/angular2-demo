@@ -1,4 +1,4 @@
-import {Component,Output , EventEmitter} from 'angular2/core';
+import {Component,Output , Input, EventEmitter} from 'angular2/core';
 import {ControlGroup, Control, Validators, FormBuilder} from 'angular2/common';
 import {LoginValidators} from '../shared/loginValidators';
 
@@ -10,7 +10,7 @@ export class LoginFormComponent {
 
 		form: ControlGroup;
         @Output() formEvent = new EventEmitter();
-
+        @Input() error: boolean;
 		constructor(fb: FormBuilder) {
 
 			this.form = fb.group ({
@@ -29,6 +29,6 @@ export class LoginFormComponent {
 			});
 			*/
             this.formEvent.emit( { loginForm: this.form.value});
-			console.log(this.form.value);
+	//		console.log(this.form.value);
 		}
 }
